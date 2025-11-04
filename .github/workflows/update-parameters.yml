@@ -1,0 +1,31 @@
+name: Update parameters (every 2h)
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # 2時間ごと（UTC基準）
+  workflow_dispatch: {}      # 手動実行ボタン
+
+permissions:
+  contents: write            # 自動コミットに必要
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update timestamp (JST)
+        run: |
+          python scripts/update_parameters.py
+
+      - name: Commit & push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: timestamp updated"
+          file_pattern: parameters.json
