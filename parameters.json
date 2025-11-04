@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-11-04T21:00:00+09:00",
+  "XAUUSD": {
+    "Support": 3990,
+    "Resistance": 4030,
+    "BreakUp": 4028,
+    "BreakDown": 3988,
+    "SL": 13,
+    "TP": 16,
+    "Trail": 9
+  },
+  "BTCUSD": {
+    "Support": 105000,
+    "Resistance": 110000,
+    "BreakUp": 110000,
+    "BreakDown": 104500,
+    "SL": 190,
+    "TP": 240,
+    "Trail": 130
+  }
+}
